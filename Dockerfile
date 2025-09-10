@@ -4,4 +4,5 @@ FROM quay.io/keycloak/keycloak:26.3.3
 EXPOSE 8080
 
 # Start in development mode with proper binding
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-port=8080", "--hostname-strict=false", "--hostname=0.0.0.0"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-port=${PORT}", "--hostname-strict=false", "--http-relative-path=/"]
+
