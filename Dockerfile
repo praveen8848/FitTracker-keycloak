@@ -1,8 +1,7 @@
-# Use the official Keycloak image that matches your setup
 FROM quay.io/keycloak/keycloak:26.3.3
 
 # Expose the default Keycloak port
 EXPOSE 8080
 
-# Start in development mode (this is likely how your container is running)
-CMD ["start-dev"]
+# Start in development mode with proper binding
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-port=8080", "--hostname-strict=false", "--hostname=0.0.0.0"]
